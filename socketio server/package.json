@@ -1,0 +1,14 @@
+{
+  "name": "socketio-server",
+  "version": "1.0.0",
+  "description": "Server for socket io",
+  "main": "server.js",
+  "scripts": {
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "socket.io": "^4.5.2"
+  },
+  "type": "module"
+}

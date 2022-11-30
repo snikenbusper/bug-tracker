@@ -1,0 +1,8 @@
+{% extends "sidebar.html" %}
+
+{% block content %}
+<form action={{project.url + "/task/createTask"}} method="POST">
+    <input type="text" name="name">Name</input>
+    <button type="submit">Create</button>
+</form>
+{% endblock %}

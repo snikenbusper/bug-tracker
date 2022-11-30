@@ -1,0 +1,219 @@
+*
+{
+    position:relative;
+    padding:0;
+    margin:0;
+}
+::-webkit-scrollbar
+{
+    width:0.5rem;
+}
+::-webkit-scrollbar
+{
+    border-radius:5px;
+    background-color:#bebaba;
+}
+::-webkit-scrollbar-thumb
+{
+    background-color:grey;
+    border-radius:5px;
+}
+
+#main-container
+{
+    position:relative;
+    height:100%;
+    width:100%;
+}
+#bg
+{
+    position:relative;
+    height:100%;
+    width:100%;
+}
+
+
+/*header*/
+#menu-title-bar
+{
+    position:relative;
+    height:30%;
+    min-height:30%;
+    display:flex;
+    flex-direction:row;
+    outline : 0.1rem solid grey;
+}
+#title-div,#menu-div
+{
+    position:relative;
+    margin:0;
+    width:50%;
+    max-width:50%;
+    padding:0;
+    display:inline;
+    height:fit-content;
+    bottom:0rem;
+}
+#title-div
+{
+    top:4rem;
+    left:2rem;
+}
+#menu-div
+{
+    position:absolute;
+    bottom:0;
+    right:0;
+}
+.menu-button
+{
+    display:inline;
+    float:right;
+    margin: 0 1rem;
+}
+
+
+
+/* project cards*/
+#project-list-container
+{
+    position:relative;
+    height:70%;
+    margin:0;
+}
+#project-list-box
+{
+    position:absolute;
+    overflow:scroll;
+    overflow-x:hidden;
+    height:18rem;
+    border-radius:5px;
+    width:75rem;
+    margin:0 calc(50% - 37.5rem);
+    margin-top:2.4rem;
+    outline:0.1rem solid grey;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    align-content : flex-start;
+}
+.project-card
+{
+    position:relative;
+    margin: 0.5rem;
+    width : 36rem;
+    height : 4rem;
+    border-radius:5px;
+    background-color :#79cbe1;
+    box-shadow:0.1rem 0.1rem grey;
+    display:flex;
+    flex-direction:row;
+}
+.project-card-link
+{
+    color:inherit;
+    text-decoration:inherit;
+}
+.project-card-link:visited
+{
+    color:inherit;
+    text-decoration:inherit;
+}
+.project-info
+{
+    width:60%;
+    max-width:60%;
+    margin-left:2rem;
+    top:0.8rem;
+    height:3rem;
+}
+.project-progress-container
+{
+    width:calc(40% - 2rem);
+    margin:auto;
+}
+
+
+/* create and join project pop up*/
+#join-container,#create-container
+{
+    position:fixed;
+    display:none;
+    width : 13rem;
+    height : 10rem;
+    top : 15rem;
+    left : calc(50% - 6.5rem);
+    text-align : center;
+}
+#join-body,#create-body
+{
+    position:inherit;
+    border-radius:25px;
+    box-shadow: 0.4rem 0.4rem 2rem grey;
+    background-color:white;
+    width : 13rem;
+    height : 10rem;
+    display:flex;
+    flex-direction:column;
+}
+#project-id,#project-name
+{
+    position:inherit;
+    width:9rem;
+    height:2rem;
+    margin:1.5rem;
+    margin-top:2rem;
+}
+#join-submit,#create-submit
+{
+    position:relative;
+    border:none;
+    background-color:#55c6e6;
+    border-radius:0.2rem;
+    height:2rem;
+    width:7rem;
+    margin:1.5rem;
+    font-family: 'Poppins';
+    font-weight: bold;
+    box-shadow: 0.2rem 0.2rem 0 #49aac4;
+}
+#join-submit:active,#create-submit:active
+{
+    box-shadow: 0 0;
+    margin-top:1.7rem;
+    margin-left:1.7rem;
+}
+
+
+
+
+/* X button */
+.x-button-container
+{
+    position:absolute;
+    top:0;
+    right:0;
+    width:2rem;
+    height:2rem;
+    cursor:pointer;
+}
+.span-1,.span-2
+{
+    display:block;
+    position:absolute;
+    width:1.4rem;
+    height:0.3rem;
+    border-radius:99px;
+    margin-top: 0.85rem;
+    background-color:grey;
+    z-index:9;
+    padding:0px;
+}
+.span-1
+{
+    transform : rotate(45deg);
+}
+.span-2
+{
+    transform : rotate(-45deg);
+}

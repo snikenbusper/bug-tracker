@@ -1,0 +1,120 @@
+from flask import Flask, render_template, request, redirect, session, url_for, flash
+from flask_sqlalchemy import SQLAlchemy 
+from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user, current_user
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, EmailField
+from datetime import datetime
+
+
+
+
+template_dir = '../'#change template folder location for render_remplate
+static_dir = '../static'#change default css folder
+app = Flask(__name__, template_folder=template_dir,static_folder=static_dir)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///../database/test.db' #three / is relative path
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = "login"
+login_manager.login_message = "You need to be logged in to access this page"
+login_manager.login_message_category = "warning"
+app.secret_key = b"377252112254372214101015264317"
+
+
+@app.after_request  #asks the browser not to cache the prev page so user cannot access login_required pages after logged out by using back button
+def after_request(response):
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    return response
+
+
+@login_manager.user_loader
+def load_user(id):
+    return Accounts.query.get(int(id))
+
+class LoginForm(FlaskForm):
+    email=EmailField('Email')
+    password=PasswordField('Password')
+
+ProjectUserRelationship = db.Table('project_user_relationship',
+    db.Column('user_id', db.Integer, db.ForeignKey('accounts.id')),
+    db.Column('project_id', db.Integer, db.ForeignKey('projects.id'))
+)
+
+class Accounts(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(200), nullable=False)
+    password = db.Column(db.String(50), nullable=False)
+    username = db.Column(db.String(50), nullable=False)
+    date_created = db.Column(db.DateTime, default=datetime.utcnow)
+    workingOn = db.relationship('Projects', secondary=ProjectUserRelationship, backref="workedOnBy")
+
+    def __repr__(self):
+        return '<Account %r>' % self.username
+
+class Projects(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(70))
+    date_created = db.Column(db.DateTime, default=datetime.utcnow)
+
+    def __repr__(self):
+        return '<Project %r>' % self.name
+
+
+@app.route('/', methods=["GET"])
+def main():
+    return "main"
+
+@app.route('/signup', methods=['POST', 'GET'])
+def signup():
+    if request.method == 'POST':
+        emailInput = request.form['email-input']
+        passwordInput = request.form['password-input']
+        usernameInput = request.form['username-input']
+        new_task = Accounts(email=emailInput, password=passwordInput, username=usernameInput)
+        try:
+            print("adding data")
+            db.session.add(new_task)
+            db.session.commit()
+            print("Successful")
+            return redirect('/login')
+        except:
+            return "Something went wrong"
+    else:
+        return render_template("signUp.html")
+
+
+
+@app.route('/login', methods=["POST", "GET"])
+def login():
+    if request.method == "POST":
+        #authenticate user
+        email = request.form['email']
+        password = request.form['password']
+        user = Accounts.query.filter_by(email=email).first()
+        if user:
+            if user.password == password:
+                login_user(user)
+                return redirect(url_for('home'))
+        return "Invalid"
+        
+    else:
+        return render_template('login.html')
+
+
+@app.route('/home', methods=["GET","POST"])
+@login_required
+def home():
+    return render_template("home.html", name=current_user.username)
+
+
+@app.route('/logout', methods=["GET"])
+@login_required
+def logout():
+    flash("You have been logged out")
+    logout_user()
+    return redirect('/login')
+
+
+if __name__ == "__main__":
+    app.run(debug=True)

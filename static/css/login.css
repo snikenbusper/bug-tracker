@@ -1,0 +1,125 @@
+body
+{
+    margin:0;
+    padding:0;
+}
+
+
+#login-box
+{
+    border-radius:25px;
+    box-shadow: 5px 5px 30px grey;
+    width : 400px;
+    height : 500px;
+    margin:auto;
+    margin-top:70px; /* does not work on all screen res */
+    text-align : center;
+}
+#login-text
+{
+    margin:0;
+    height:20px;
+    padding-top:50px;
+    padding-bottom:30px;
+    font-family: 'Poppins';
+    font-weight: bold;
+    font-size: 25px;
+}
+
+#email-input-container
+{
+    position:relative;
+    height:150px;
+    margin:0px;
+}
+#email-input-box
+{
+    position:relative;
+    padding:0;
+    padding-top:40px;
+}
+
+#password-input-container
+{
+    position : relative;
+    height:150px;
+    margin:0px;
+}
+#password-input-box
+{
+    position:relative;
+    padding:0;
+    padding-top:40px;
+}
+#password-error-message
+{
+    font-size:15px;
+    font-family:'Poppins';
+    text-align:left;
+    margin-left:60px;
+}
+
+#login-button-container
+{
+    margin : 0px 0px;
+}
+#login-button
+{
+    position:relative;
+    border:none;
+    background-color:#55c6e6;
+    border-radius:8px;
+    height:60px;
+    width:100px;
+    bottom:30px;
+    padding:0px;
+    font-family: 'Poppins';
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 3px 3px 0 #49aac4;
+}
+#login-button:active
+{
+    box-shadow: 0 0;
+    margin : 3px -3px -3px 3px;
+}
+
+input
+{
+    border:none;
+    border-bottom:1px solid #bfbfbf;
+    font-family: 'Poppins';
+    font-weight: bold;
+    font-size: 20px;
+    height:30px;
+    width:280px;
+    outline : none;
+}
+label
+{
+    position : absolute;
+    left : 60px;
+    top:40px;
+    font-family: 'Poppins';
+    font-weight: bold;
+    font-size: 20px;
+}
+/*when input field is being selected*/
+input:focus + label 
+{
+    top : 10px;
+    font-size:15px;
+    transition-duration:0.3s;
+}
+input:valid + label
+{
+    top:10px;
+    font-size:15px;
+}
+
+a, a:visited
+{
+    padding-top:5px;
+    color:blue;
+}
+

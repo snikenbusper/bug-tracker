@@ -1,0 +1,79 @@
+{% extends 'sidebar.html' %}
+
+{% block content %}
+
+<div id="main-container">
+    <div id="bg">
+        <link rel="stylesheet" href="/static/css/projects.css">
+        <p style="display:none" id="join-pop-up">{{joinPopUp}}</p>
+
+
+        <div id="menu-title-bar">
+            <div id="title-div">
+                <h1>You have {{projectAmount}} projects</h1>
+            </div>
+
+            <div id="menu-div">
+                <button class="menu-button" id="create-project">Create a project</button>
+                <button class="menu-button" id="join-project">Join a project</button>
+            </div>
+        </div>
+        
+        <div id="project-list-container">
+            <div id="project-list-box">
+                {% for project in projects %}
+                    <a href="{{project.url}}" class="project-card-link">
+                        <div class="project-card">
+                            <div class="project-info">
+                                <h4>{{project.name}}</h4>
+                                <h5>Created : {{str(project.date_created)[:11]}}</h5>
+                            </div>
+                            <div class="project-progress-container">
+                                progress
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+        
+    </div>
+
+
+    <div id="join-container">
+        <div id="join-body">
+            <div class="x-button-container">
+                <span class="span-1"></span>
+                <span class="span-2"></span>
+            </div>
+            <form id="join-form" action="/joinProject" method="POST">
+                <input id="project-id" name="project-id">
+                {% with message = get_flashed_messages(category_filter=['error']) %}
+                    {% if message%}
+                        <p style="position:absolute; top:0; left:0; right:0; bottom:0; width:fit-content; height:fit-content; margin:auto;">{{message[0]}}</p>
+                    {% endif %}
+                {% endwith %}
+                <button id="join-submit" type="submit">Join</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="create-container">
+        <div id="create-body">
+            <div class="x-button-container">
+                <span class="span-1"></span>
+                <span class="span-2"></span>
+            </div>
+            <form id="create-form" action="/createProject" method="POST">
+                <input id="project-name" name="project-name">
+                <button id="create-submit" type="submit">Create</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="module" src="/static/js/projects.js"></script>
+
+
+{% endblock %}

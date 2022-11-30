@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/./static/css/sidebar.css">
+        <script src="https://kit.fontawesome.com/dee832aabd.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="main">
+            <div class="top-bar">
+                <div class="menu-toggle">
+                    <div class="hamburger">
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            <aside class="sidebar">
+                <nav class="menu">
+                    <a href="/home" class="menu-item">Home</a>
+                    <a href="/profile" class="menu-item">Profile</a>
+                    <a href="/projects" class="menu-item">Projects</a>
+                    <a href="/logout" class="menu-item">Logout</a>
+                </nav>
+            </aside>
+            <div class="content">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+        
+        <script>
+            const menu_toggle = document.querySelector('.menu-toggle');
+            const sidebar = document.querySelector('.sidebar');
+
+            menu_toggle.addEventListener('click', ()=>
+            {
+                console.log("clicked")
+                menu_toggle.classList.toggle('is-active');
+                sidebar.classList.toggle('is-active');
+            })
+        </script>
+    </body>
+</html>

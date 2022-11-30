@@ -1,0 +1,225 @@
+#bg
+{
+    position:relative;
+    width:100%;
+    height:100%;
+}
+
+
+/*custom scrollbar*/
+::-webkit-scrollbar
+{
+    width:0.5rem;
+}
+::-webkit-scrollbar
+{
+    border-radius:5px;
+    background-color:#bebaba;
+}
+::-webkit-scrollbar-thumb
+{
+    background-color:grey;
+    border-radius:5px;
+}
+
+
+/* x button */
+.x-button-container
+{
+    position:absolute;
+    top:0;
+    right:0;
+    width:2rem;
+    height:2rem;
+    cursor:pointer;
+}
+
+.span-1,.span-2
+{
+    display:block;
+    position:absolute;
+    width:1.4rem;
+    height:0.3rem;
+    border-radius:99px;
+    margin-top: 0.85rem;
+    background-color:grey;
+    z-index:9;
+    padding:0px;
+}
+.span-1
+{
+    transform : rotate(45deg);
+}
+.span-2
+{
+    transform : rotate(-45deg);
+}
+
+
+
+/*header*/
+#title-menu-bar
+{
+    position:relative;
+    height:30%;
+    outline:0.1rem solid grey;
+    display:flex;
+    flex-direction:row;
+}
+
+#title-container
+{
+    position:relative;
+    height:100%;
+    width:50%;
+}
+.title-text
+{
+    position:relative;
+    left:2rem;
+    width:fit-content;
+    height:fit-content;
+    top:3rem;
+    margin:0;
+}
+
+#menu-container
+{
+    position:relative;
+    height:100%;
+    width:50%;
+}
+#menu-button-container
+{
+    position:absolute;
+    height:fit-content;
+    width:100%;
+    bottom:0px;
+}
+#menu-buttons
+{
+    position:relative;
+    float:right;
+    margin:0 1rem;
+    display:flex;
+    flex-direction:row;
+    width:50%;
+    justify-content:flex-end;
+}
+.menu-button
+{
+    position:relative;
+    margin:0 1rem;
+
+}
+
+
+
+/*task cards*/
+#task-list-container
+{
+    position:relative;
+    height:70%;
+}
+#task-list-box
+{
+    position:absolute;
+    overflow:scroll;
+    overflow-x:hidden;
+    height:18rem;
+    border-radius:5px;
+    width:75rem;
+    margin:0 calc(50% - 37.5rem);
+    margin-top:2.4rem;
+    outline:0.1rem solid grey;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    align-content : flex-start;
+}
+.task-card
+{
+    position:relative;
+    margin: 0.5rem;
+    width : 36rem;
+    height : 4rem;
+    border-radius:5px;
+    background-color :#79cbe1;
+    box-shadow:0.1rem 0.1rem grey;
+    display:flex;
+    flex-direction:row;
+}
+.task-card-link
+{
+    color:inherit;
+    text-decoration:inherit;
+}
+.task-card-link:visited
+{
+    color:inherit;
+    text-decoration:inherit;
+}
+.task-info
+{
+    position:relative;
+    left:2rem;
+    margin : auto 0;
+}
+
+
+
+/*create task popup*/
+#create-container,
+#info-container
+{
+    position:fixed;
+    display:none;
+    width : 13rem;
+    height : 10rem;
+    top : 15rem;
+    left : calc(50% - 6.5rem);
+    text-align : center;
+}
+#create-body,
+#info-body
+{
+    position:inherit;
+    border-radius:25px;
+    box-shadow: 0.4rem 0.4rem 2rem grey;
+    background-color:white;
+    width : 13rem;
+    height : 10rem;
+}
+#create-submit
+{
+    position:relative;
+    border:none;
+    background-color:#55c6e6;
+    border-radius:0.2rem;
+    height:2rem;
+    width:7rem;
+    margin:1.5rem;
+    font-family: 'Poppins';
+    font-weight: bold;
+    box-shadow: 0.2rem 0.2rem 0 #49aac4;
+}
+#create-submit:active
+{
+    box-shadow: 0 0;
+    margin-top:1.7rem;
+    margin-left:1.7rem;
+}
+#task-name
+{
+    position:inherit;
+    width:9rem;
+    height:2rem;
+    margin:1.5rem;
+    margin-top:2rem;
+}
+#project-id
+{
+    position:relative;
+    height:2rem;
+    top:calc(50% - 1rem);
+}

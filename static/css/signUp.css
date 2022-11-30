@@ -1,0 +1,125 @@
+html
+{
+    height:100%;
+    width:100%;
+}
+
+body
+{
+    margin:0px;
+    height:inherit;
+    width:inherit;
+}
+
+#container
+{
+    position:relative;
+    height:inherit;
+    width:inherit;
+    min-width:800px;
+}
+
+#signup-steps
+{
+    position:relative;
+    width:70%;
+    height:100%;
+    display:inline;
+    float:right;
+}
+
+.tab
+{
+    display:none;
+}
+/*.tab
+{
+    display:inline;
+    float:right;
+    width:1000px;
+    height:30px;
+}
+*/
+
+.left-padding
+{
+    position:relative;
+    width:30%;
+    height:100%;
+    display:inline;
+    float:left;
+    background-color:blue;
+}
+
+.input-container
+{
+    position:relative;
+    height:50px;
+    width:400px;
+    display:inline;
+    white-space:nowrap;
+    top:300px;
+    left:200px;
+}
+
+
+input
+{
+    position:relative;
+    border:none;
+    border-bottom:1px solid grey;
+    outline:none;
+    margin:auto;
+    font-size:24px;
+    font-family:"Poppins";
+    font-weight:bold;
+    width:400px;
+    height:30px;
+}
+
+label
+{
+    position:absolute;
+    font-size:24px;
+    font-family:"Poppins";
+    font-weight:bold;
+    left:0px;
+    display:inline;
+}
+input:focus+label
+{
+    font-size:15px;
+    top:-25px;
+    transition-duration:0.25s;
+}
+input:valid+label
+{
+    font-size:15px;
+    top:-25px;
+}
+
+
+#button-container
+{
+    position:absolute;
+    width:100%;
+    height:20%;
+    bottom:0px;
+}
+
+
+.buttons
+{
+    position:relative;
+    display:inline;
+
+    width:200px;
+    height:50px;
+    top:70px;
+    right:0px;
+    float:right;
+    margin:0px 5px;
+}
+
+
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/./static/css/login.css">
+    </head>
+
+    <body>
+        {% block content %}
+        <div id="login-box">
+            <p id="login-text">LOGIN</p>
+            <form method="POST" action="/login">
+
+                <div id="email-input-container">
+                    <input required name="email" id="email-input-box"></input>
+                    <label class="shrinkable-labels" id="email-input-label">Email</label>
+                </div>
+
+                <div id="password-input-container">
+                    <input type="password" name = "password" required id="password-input-box"></input>
+                    <label class="shrinkable-labels" id="password-input-label">Password</label>
+                    <p id="password-error-message"></p>
+                </div>
+
+                
+
+                <div id="login-button-container" type="submit">
+                    <button id="login-button">LOGIN</button>
+                </div>
+            </form>
+            <a href= {{url_for('signup.signupPage')}} target="_blank">Sign up</a>
+            <!-- functions defined from Blueprints need to be prepended by the Blueprint's name seperated by '.'-->
+
+
+        </div>
+        {% endblock %}
+
+        <script type="module" src="./static/js/login.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    </body>
+
+</html>

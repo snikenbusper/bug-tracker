@@ -1,0 +1,66 @@
+{% extends 'sidebar.html' %}
+
+{% block content %}
+
+<link rel="stylesheet" href="/static/css/projectPage.css">
+
+<div id="bg">
+    <div id="title-menu-bar">
+        <div id="title-container">
+            <h1 class="title-text">{{project.name}}</h1>
+            <h1 class="title-text">You have {{len(project.tasks)}} tasks</h1>
+        </div>
+        <div id="menu-container">
+            <div id="menu-button-container">
+                <div id="menu-buttons">
+                    <button class="menu-button" id="create-task-button">Create a task</button>
+                    <button class="menu-button" id="project-id-button">Info</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="task-list-container">
+        <div id="task-list-box">
+            {% for task in project.tasks %}
+                <a href="{{project.url}}/task/{{task.id}}" class="task-card-link">
+                    <div class="task-card">
+                        <div class="task-info">
+                            <div class="task-name"><h4>{{task.name}}</h4></div>
+                            <div class="task-date"><h5>Created : {{str(task.date_created)[:11]}}</h5></div>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div id="create-container">
+    <div id="create-body">
+        <div class="x-button-container">
+            <span class="span-1"></span>
+            <span class="span-2"></span>
+        </div>
+        <form id="create-form" action="{{project.url}}/task/createTask" method="POST">
+            <input id="task-name" name="task-name">
+            <button id="create-submit" type="submit">Create</button>
+        </form>
+    </div>
+</div>
+
+
+<div id="info-container">
+    <div id="info-body">
+        <div class="x-button-container">
+            <span class="span-1"></span>
+            <span class="span-2"></span>
+        </div>
+        <h2 id="project-id">{{project.id}}</h2>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="module" src="/static/js/projectPage.js"></script>
+
+{% endblock %}

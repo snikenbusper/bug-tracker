@@ -1,0 +1,53 @@
+{% extends "sidebar.html"%}
+
+
+
+{% block content %}
+
+    <link rel="stylesheet" href="/static/css/profile.css">
+    <link rel="stylesheet" href="/static/cropme-master/dist/cropme.css">
+    <script type="module" src="./static/cropme-master/dist/cropme.js"></script>
+    <script src="./static/test.js"></script>
+
+    <div id="main">
+
+        <div id="side-div">
+            <div id="profile-picture-container">
+                <img id="profile-picture" src="{{user.profile_picture_metadata}}">
+            </div>
+            
+        </div>
+
+        <div id="info-div">
+            <div id="username-div">
+                <h1 class="text" id="username">{{user.username}}</h1>
+                <div id="edit-username" class="edit-link">Edit</div>
+            </div>
+            
+            <div id="bio-div">
+                <h1 class="text" id="edit-bio">{{user.bio}}</h1>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="profile-picture-upload-container" style="display:none">
+        <div class="x-button-container">
+            <span class="span-1"></span>
+            <span class="span-2"></span>
+        </div>
+        <form action="/profile" enctype="multipart/form-data" method="POST" id="profile-picture-upload-form">
+            <input type="hidden" name="type" value="image"> <!--- to identify the type of form that POSTs to server-->
+            <div id="profile-picture-preview-div">
+                <img id="profile-picture-preview" src="">
+            </div>
+            <label for="profile-picture-input" id="choose-img-label">Choose Image</label>
+            <input id="profile-picture-input" type="file" name="profile-picture" style="display:none"/>
+            <button type="submit" id="submit-profile-picture">submit</button>
+        </form>
+    </div>
+
+    
+    <script type="module" src="./static/js/profile.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+{% endblock %}

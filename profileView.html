@@ -1,0 +1,27 @@
+{% extends "sidebar.html"%}
+
+
+
+{% block content %}
+
+    <link rel="stylesheet" href="/static/css/profile.css">
+
+    <div id="main">
+
+        <div id="side-div">
+        image goes here
+        </div>
+
+        <div id="info-div">
+            <div id="username-div">
+                <h1 class="text" id="username">{{user.username}}</h1>
+            </div>
+            
+            <div id="bio-div">
+                <h1 class="text" id="edit-bio"> {{user.bio}} </h1>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
