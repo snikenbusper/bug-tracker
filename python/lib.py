@@ -7,11 +7,12 @@ from wtforms import StringField, PasswordField, EmailField
 from datetime import datetime
 from werkzeug.utils import secure_filename
 import os
+import base64
 import uuid
 
 
-template_dir = os.path.abspath('..')#change template folder location for render_remplate
-static_dir = os.path.abspath('../static')#change default css and js folder
+template_dir = os.path.abspath('./')#change template folder location for render_remplate
+static_dir = os.path.abspath('./static')#change default css and js folder
 profilePicturePath = "/Users/User/Documents/pro/Bug Tracker/static/profilePictures"
 allowedExtensions = {'png', 'jpg', 'jpeg'}
 

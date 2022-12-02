@@ -1,6 +1,6 @@
 var username = ""
 let profilePictureUpload = $("#profile-picture-upload-container");
-
+let img;
 
 $("#edit-username").on('click', function(){editUsername()});
 
@@ -55,18 +55,10 @@ let profilePictureInput = $("#profile-picture-input")[0];
 profilePictureInput.onchange = function ()
 {
     const [file] = $("#profile-picture-input")[0].files;
+    console.log($("#profile-picture-input")[0].files);
     if (file) {
         $("#profile-picture-preview")[0].src = URL.createObjectURL(file);
-        let img = $("#profile-picture-preview").cropme();
-        img.cropme('bind',
-            {
-                url:file
-            });
-
     }
-
-    //test
-    
 }
 
 $('.x-button-container').on('click', function()
